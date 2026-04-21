@@ -97,9 +97,7 @@ terraform init
 terraform plan
 terraform apply --auto-approve
 ```
-![Apply1](./img/terraform1.png)
-
-![Apply2](.img/terraform2.png)
+![Appply](./img/terraform2.png)
 
 ---
 
