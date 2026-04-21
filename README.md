@@ -44,6 +44,7 @@ lab-terraform-aws/
 ├── .gitignore
 └── README.md
 ```
+![Diagrama-flujo](./img/diagrama-flujo.png)
 
 ---
 
@@ -96,6 +97,9 @@ terraform init
 terraform plan
 terraform apply --auto-approve
 ```
+![Apply1](./img/terraform1.png)
+
+![Apply2](.img/terraform2.png)
 
 ---
 
@@ -107,6 +111,8 @@ aws --endpoint-url=http://localhost:4566 s3 ls
 aws --endpoint-url=http://localhost:4566 s3 cp holamundo.txt s3://bucket-local/
 ```
 
+![Verificar S3](./img/terraform4.png)
+
 ---
 
 ### ⚡ Lambda
@@ -116,6 +122,8 @@ aws --endpoint-url=http://localhost:4566 lambda invoke \
 
 cat output.txt
 ```
+
+![Llamada](./img/terraform5.png)
 
 ---
 
