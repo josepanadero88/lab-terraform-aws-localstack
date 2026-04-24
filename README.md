@@ -146,6 +146,36 @@ docker stop localstack_main
 - Integración básica S3 + Lambda
 
 ---
+# FASE 2:
+# AWS Event-Driven Architecture with Terraform & LocalStack
+
+Este proyecto implementa una arquitectura automatizada en AWS (simulada con LocalStack) donde la subida de un archivo a un bucket S3 dispara una función Lambda para su procesamiento.
+
+---
+
+## 🚀 Características
+- **Infraestructura como Código (IaC):** Desplegado totalmente con Terraform.
+- **Seguridad IAM:** Roles y políticas con principio de menor privilegio.
+- **Parametrización:** Uso de `variables.tf` para facilitar la reutilización.
+- **Logs:** Monitorización en tiempo real con CloudWatch Logs.
+
+---
+
+## 🛠️ Tecnologías
+- Terraform
+- LocalStack (Simulador de AWS)
+- Python 3.9 (Runtime de Lambda)
+- AWS CLI
+
+---
+
+## 📈 Diagrama de Flujo
+1. Usuario sube archivo a S3 (`s3api put-object`).
+2. S3 detecta el evento `s3:ObjectCreated:*`.
+3. S3 invoca a la Lambda gracias a los permisos definidos.
+4. Lambda procesa el evento y escribe en Logs.
+
+---
 
 ## 👨‍💻 Autor
 José Alfonso Panadero Estudillo
