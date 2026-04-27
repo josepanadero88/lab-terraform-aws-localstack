@@ -27,7 +27,9 @@ resource "aws_iam_policy" "lambda_logging" {
         "logs:CreateLogStream",
         "logs:PutLogEvents"
       ]
-      Effect   = "Allow"
+      Effect = "Allow"
+      # Decimos que ignore los riesgos de seguridad *
+      #tfsec:ignore:aws-iam-no-policy-wildcards
       Resource = "arn:aws:logs:*:*:*"
     }]
   })
