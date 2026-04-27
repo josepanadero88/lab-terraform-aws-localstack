@@ -1,0 +1,37 @@
+name: "Terraform CI"
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
+
+jobs:
+  terraform-checks:
+    name: "Check & Security Scan"
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1. Descargar código de repositorio
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      # 2. Instalar Terraform en el corredor de Github
+      - name: Setup terraform
+        uses: hashicorp/setup-terraform@v3
+
+      # 3 Verificar formato
+      - name: Terraform Format
+        run: terraform fmt -check
+
+      # 4 Terraform init
+      - name: Terraform Init
+      - run: terraform init
+
+      # 5 Validacion terraform
+      - name: Terraform Validate
+        run: terraform validate
+
+      # 6 Escaneo de Seguridad tfsec GitHub Actions
+      - name: Terraform Security Scan
+        uses: aquasecurity/tfsec-action@v1.0.0
