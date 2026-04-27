@@ -24,9 +24,9 @@ jobs:
       - name: Terraform Format
         run: terraform fmt -check
 
-      # 4 Terraform init
+      # 4 Terraform init, se coloca backend=false para localstack
       - name: Terraform Init
-        run: terraform init
+        run: terraform init -backend=false
 
       # 5 Validacion terraform
       - name: Terraform Validate
