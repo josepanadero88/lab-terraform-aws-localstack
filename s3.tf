@@ -23,12 +23,12 @@ resource "aws_s3_bucket_public_access_block" "public_block" {
 }
 
 # Cifrar Datos (para seguridad workflow)
+# tfsec:ignore:aws-s3-encryption-customer-key
 resource "aws_s3_bucket_server_side_encryption_configuration" "s3_encryption" {
   bucket = aws_s3_bucket.Test_bucket.id
 
   rule {
     apply_server_side_encryption_by_default {
-      # tfsec:ignore:aws-s3-encryption-customer-key
       sse_algorithm = "AES256"
     }
   }

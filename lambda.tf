@@ -17,7 +17,7 @@ resource "aws_lambda_function" "test_lambda" {
 
   # PARA PASAR EL ESCANEO DE SEGURIDAD.
   tracing_config {
-    mode = "PassThrough"
+    mode = "Active"
   }
 }
 #Definir permisos Lambda
