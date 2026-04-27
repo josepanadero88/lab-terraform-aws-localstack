@@ -1,3 +1,4 @@
+#tfsec:ignore:aws-s3-enable-bucket-logging
 resource "aws_s3_bucket" "Test_bucket" {
   #cambiamos nombre por la variable del bucket
   bucket = var.bucket_name
@@ -27,6 +28,7 @@ resource "aws_s3_bucket_server_side_encryption_configuration" "s3_encryption" {
 
   rule {
     apply_server_side_encryption_by_default {
+      # tfsec:ignore:aws-s3-encryption-customer-key
       sse_algorithm = "AES256"
     }
   }

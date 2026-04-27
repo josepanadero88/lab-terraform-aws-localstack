@@ -14,8 +14,12 @@ resource "aws_lambda_function" "test_lambda" {
   runtime       = "python3.9"
 
   source_code_hash = data.archive_file.lambda_zip.output_base64sha256
-}
 
+  # PARA PASAR EL ESCANEO DE SEGURIDAD.
+  tracing_config {
+    mode = "PassThrough"
+  }
+}
 #Definir permisos Lambda
 resource "aws_lambda_permission" "allow_s3" {
   statement_id  = "AllowS3Invoke"

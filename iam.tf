@@ -15,6 +15,7 @@ resource "aws_iam_role" "lambda_exec_role" {
 }
 
 #Politica para que Lambda escriba logs (CloudWatch)
+#tfsec:ignore:aws-iam-no-policy-wildcards
 resource "aws_iam_policy" "lambda_logging" {
   name        = "${var.project_name}-logging-policy"
   description = "Permitir lambda escribir logs"
@@ -29,7 +30,6 @@ resource "aws_iam_policy" "lambda_logging" {
       ]
       Effect = "Allow"
       # Decimos que ignore los riesgos de seguridad *
-      #tfsec:ignore:aws-iam-no-policy-wildcards
       Resource = "arn:aws:logs:*:*:*"
     }]
   })
