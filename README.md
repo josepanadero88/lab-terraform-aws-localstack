@@ -125,20 +125,6 @@ cat output.txt
 
 ---
 
-## 🧹 Limpieza de recursos
-```bash
-terraform destroy --auto-approve
-docker stop localstack_main
-```
-
----
-
-## 📌 Notas adicionales
-- LocalStack es un entorno de pruebas: los recursos se pierden al apagarlo.
-- Los archivos `.tfstate` están excluidos en `.gitignore`.
-
----
-
 ## 🧠 Aprendizajes clave
 - Uso de LocalStack como entorno AWS local
 - Automatización con Terraform
@@ -167,6 +153,23 @@ Este proyecto implementa una arquitectura automatizada en AWS (simulada con Loca
 - Python 3.9 (Runtime de Lambda)
 - AWS CLI
 
+
+## 🧪 Comprobaciones y Verificación (Fase 2)
+
+Para validar la arquitectura orientada a eventos, realizamos las siguientes pruebas de integración:
+
+![Terraform Init v1.1](./img/tf_apply.png)
+
+### 1. Despliegue de la Infraestructura
+Tras verificar Terraform Init, verificamos los nuevos recursos y políticas.
+
+![Terraform Apply v1.1](./img/tf_apply)
+
+### 2. Disparo del Evento (S3 -> Lambda)
+Subimos un archivo al nuevo bucket parametrizado para activar el trigger, se revisan logs.
+"
+![Lambda Logs v1.1](./img/log_lambda.png)
+
 ---
 
 ## 📈 Diagrama de Flujo
@@ -174,6 +177,32 @@ Este proyecto implementa una arquitectura automatizada en AWS (simulada con Loca
 2. S3 detecta el evento `s3:ObjectCreated:*`.
 3. S3 invoca a la Lambda gracias a los permisos definidos.
 4. Lambda procesa el evento y escribe en Logs.
+
+
+---
+
+## 🔄 Fase 3: CI/CD Pipeline (DevSecOps)
+
+En esta fase hemos implementado un flujo de **Integración Continua** utilizando **GitHub Actions**. Cada vez que se realiza un `push`, el código es auditado automáticamente.
+
+### Flujo de Trabajo:
+1. **Linter/Format:** Se verifica que el código Terraform cumpla con el estándar oficial (`terraform fmt`).
+2. **Security Scan:** Se audita la infraestructura con **tfsec** para detectar brechas de seguridad (S3 sin cifrar, políticas IAM demasiado abiertas, etc.).
+3. **Validation:** Se comprueba que la sintaxis de Terraform sea correcta para un despliegue limpio.
+
+### Estado del Pipeline:
+![Terraform CI](https://github.com/josepanadero88/lab-terraform-aws-localstack/actions/workflows/terraform-ci.yml/badge.svg)
+
+> **Nota:** Se han aplicado técnicas de *Hardening* (Cifrado AES256, Bloqueo de acceso público y Versionado) para cumplir con los estándares de seguridad detectados por el escáner.
+
+
+---
+
+## 🧹 Limpieza de recursos
+```bash
+terraform destroy --auto-approve
+docker stop localstack_main
+```
 
 ---
 
