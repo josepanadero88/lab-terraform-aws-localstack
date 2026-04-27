@@ -1,5 +1,5 @@
 # ☁️ AWS Local Lab con Terraform + LocalStack
-
+![Terraform CI](https://github.com/josepanadero88/lab-terraform-aws-localstack/actions/workflows/terraform-ci.yml/badge.svg)
 ## 🚀 Descripción
 Este proyecto simula una infraestructura AWS en entorno local utilizando **LocalStack**, **Terraform** y **Docker** sobre una máquina Ubuntu. El objetivo es practicar **Infraestructura como Código (IaC)** y conceptos de arquitectura cloud sin consumir recursos reales en AWS.
 
