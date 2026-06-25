@@ -22,6 +22,17 @@ La solución automatiza el procesamiento de objetos almacenados en S3 mediante e
 
 ---
 
+## 🛠️ Capacidades demostradas
+
+- Aprovisionamiento de infraestructura mediante Terraform.
+- Gestión de almacenamiento basado en eventos.
+- Automatización de procesos mediante funciones Lambda.
+- Configuración de permisos mediante IAM.
+- Simulación de arquitecturas AWS en entornos locales.
+- Validación continua mediante GitHub Actions y tfsec.
+
+---
+
 ## 🏗️ Arquitectura del laboratorio
 El laboratorio incluye:
 - **Bucket S3** simulado para almacenamiento.
