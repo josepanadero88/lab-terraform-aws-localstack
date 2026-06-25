@@ -6,10 +6,9 @@ Este proyecto simula una infraestructura AWS en entorno local utilizando **Local
 ---
 
 ## 🎯 Caso de uso
-- Desplegar recursos AWS en local (S3 + Lambda).
-- Automatizar infraestructura con Terraform.
-- Simular arquitectura cloud en entorno aislado.
-- Practicar flujos reales de trabajo DevOps.
+Implementación de una arquitectura orientada a eventos utilizando Infraestructura como Código (Terraform) sobre un entorno AWS simulado mediante LocalStack.
+
+La solución automatiza el procesamiento de objetos almacenados en S3 mediante eventos que desencadenan la ejecución de funciones Lambda, replicando un patrón ampliamente utilizado en arquitecturas cloud modernas.
 
 ---
 
@@ -17,8 +16,8 @@ Este proyecto simula una infraestructura AWS en entorno local utilizando **Local
 - **Cloud**: AWS (simulado con LocalStack)
 - **IaC**: Terraform
 - **Contenedores**: Docker
-- **Lenguaje**: Python (Lambda)
-- **Sistema**: Ubuntu 20.04
+- **Desarrollo**: Python (Lambda)
+- **Sistema**: Ubuntu Linux
 - **Herramientas**: AWS CLI, Bash
 
 ---
@@ -122,14 +121,6 @@ cat output.txt
 ```
 
 ![Llamada](./img/terraform5.png)
-
----
-
-## 🧠 Aprendizajes clave
-- Uso de LocalStack como entorno AWS local
-- Automatización con Terraform
-- Configuración de endpoints personalizados
-- Integración básica S3 + Lambda
 
 ---
 # FASE 2:
