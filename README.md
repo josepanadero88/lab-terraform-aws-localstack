@@ -5,7 +5,7 @@ Este proyecto simula una infraestructura AWS en entorno local utilizando **Local
 
 ---
 
-## 🎯 Objetivos del laboratorio
+## 🎯 Caso de uso
 - Desplegar recursos AWS en local (S3 + Lambda).
 - Automatizar infraestructura con Terraform.
 - Simular arquitectura cloud en entorno aislado.
